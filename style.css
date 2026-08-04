@@ -260,8 +260,11 @@ body {
 }
 
 .icon-btn.gm:hover {
-  color: var(--gm);
-  filter: brightness(1.1);
+  filter: brightness(1.12);
+}
+
+.icon-btn.gm svg {
+  overflow: visible;
 }
 
 .icon-btn.gh {
