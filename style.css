@@ -1294,7 +1294,6 @@ body {
 #home,
 #sobre-mi,
 #proyectos,
-#resultados,
 #servicios {
   scroll-margin-top: 90px;
 }
@@ -2141,7 +2140,6 @@ body {
   #home,
   #sobre-mi,
   #proyectos,
-  #resultados,
   #servicios {
     scroll-margin-top: 64px;
   }
@@ -2690,44 +2688,10 @@ a.matrix-badge:hover {
   color: var(--accent) !important;
 }
 
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.result-card {
-  padding: 24px 20px;
-}
-
 .result-metric {
   margin: 0 0 8px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--accent);
   letter-spacing: -0.02em;
-}
-
-.result-card .card-desc {
-  margin: 0;
-}
-
-@media (max-width: 1024px) {
-  .results-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .results-grid .result-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 640px) {
-  .results-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .results-grid .result-card:last-child:nth-child(odd) {
-    grid-column: auto;
-  }
 }
