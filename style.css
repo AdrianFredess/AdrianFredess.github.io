@@ -660,98 +660,175 @@ body {
   filter: brightness(0.95);
 }
 
-/* Liquid metal button (adaptación vanilla del efecto liquid-metal) */
+/* Liquid metal button — misma estructura que el componente Paper Shaders */
 .btn-liquid {
-  position: relative;
+  /* fallback antes de hidratar con el shader */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  isolation: isolate;
-  overflow: hidden;
-  border: none;
-  border-radius: 100px;
-  padding: 12px 22px;
   min-height: 46px;
-  color: #c8c8c8;
-  font-weight: 500;
+  padding: 12px 22px;
+  border-radius: 100px;
+  color: #666;
+  background: linear-gradient(180deg, #202020 0%, #000 100%);
+  border: 1px solid #3a3a3a;
+  text-decoration: none;
   font-size: 14px;
-  letter-spacing: 0.01em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
-  background:
-    linear-gradient(180deg, #202020 0%, #000 100%) padding-box,
-    linear-gradient(
-      120deg,
-      #8a8a8a 0%,
-      #f2f2f2 18%,
-      #6e6e6e 36%,
-      #d9d9d9 52%,
-      #4a4a4a 70%,
-      #e8e8e8 88%,
-      #7a7a7a 100%
-    ) border-box;
-  background-size: 100% 100%, 280% 280%;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  border: 1.5px solid transparent;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.35),
-    0 18px 10px rgba(0, 0, 0, 0.04),
-    0 10px 8px rgba(0, 0, 0, 0.1),
-    0 4px 4px rgba(0, 0, 0, 0.14),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-  transition:
-    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.2s ease,
-    filter 0.2s ease;
-  animation: liquid-metal-shift 4.5s linear infinite;
+  font-weight: 400;
 }
 
-.btn-liquid::before {
-  content: "";
+.liquid-metal-root {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.liquid-metal-root.is-block {
+  display: block;
+  width: 100%;
+}
+
+.liquid-metal-perspective {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.liquid-metal-scene {
+  position: relative;
+  height: 46px;
+  transform-style: preserve-3d;
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.liquid-metal-root.is-block .liquid-metal-scene {
+  width: 100%;
+}
+
+.liquid-metal-label {
   position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 42%, rgba(0, 0, 0, 0.35) 100%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  z-index: 30;
   pointer-events: none;
-  z-index: 0;
+  transform: translateZ(20px);
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
-.btn-liquid:hover {
-  color: #f0f0f0;
-  filter: brightness(1.08);
-  transform: translateY(-1px);
+.liquid-metal-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  transform: translateZ(10px);
+  transform-style: preserve-3d;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.liquid-metal-inner-fill {
+  height: calc(100% - 6px);
+  width: calc(100% - 6px);
+  margin: 3px;
+  border-radius: 100px;
+  /* tapa el centro: el liquid metal queda solo como aro */
+  background: linear-gradient(180deg, #202020 0%, #000000 100%);
+  transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-metal-shader-shell {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: 100px;
+  background: transparent;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 36px 14px 0 rgba(0, 0, 0, 0.02),
+    0 20px 12px 0 rgba(0, 0, 0, 0.08),
+    0 9px 9px 0 rgba(0, 0, 0, 0.12),
+    0 2px 5px 0 rgba(0, 0, 0, 0.15);
+  transition:
+    box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.liquid-metal-shader {
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.liquid-metal-shader canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  border-radius: 100px !important;
+}
+
+.liquid-metal-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+  transform: translateZ(25px);
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+  text-decoration: none;
+}
+
+.liquid-metal-root.is-hovered .liquid-metal-shader-shell {
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.4),
-    0 14px 8px rgba(0, 0, 0, 0.08),
-    0 8px 6px rgba(0, 0, 0, 0.12),
-    0 3px 3px rgba(0, 0, 0, 0.16),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-  animation-duration: 2.2s;
+    0 12px 6px 0 rgba(0, 0, 0, 0.05),
+    0 8px 5px 0 rgba(0, 0, 0, 0.1),
+    0 4px 4px 0 rgba(0, 0, 0, 0.15),
+    0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
-.btn-liquid:active {
-  transform: translateY(1px) scale(0.98);
+.liquid-metal-root.is-pressed .liquid-metal-inner,
+.liquid-metal-root.is-pressed .liquid-metal-shader-shell {
+  transform: translateZ(0) translateY(1px) scale(0.98);
+}
+
+.liquid-metal-root.is-pressed .liquid-metal-inner-fill {
   box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.45),
-    0 1px 2px rgba(0, 0, 0, 0.3);
+    inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.btn-liquid .liquid-ripple {
+.liquid-metal-root.is-pressed .liquid-metal-shader-shell {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.liquid-ripple {
   position: absolute;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
   animation: liquid-ripple 0.6s ease-out forwards;
-  z-index: 2;
-}
-
-@keyframes liquid-metal-shift {
-  0% { background-position: 0% 50%, 0% 50%; }
-  100% { background-position: 0% 50%, 100% 50%; }
 }
 
 @keyframes liquid-ripple {
@@ -762,11 +839,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn-liquid {
-    animation: none;
-  }
-
-  .btn-liquid .liquid-ripple {
+  .liquid-ripple {
     display: none;
   }
 }
@@ -853,9 +926,9 @@ body {
   line-height: 1.3;
 }
 
-#servicios .btn-solution.btn-liquid {
-  margin-top: 8px !important;
-  min-height: 42px;
+#servicios .liquid-metal-root {
+  width: 100%;
+  margin-top: 8px;
 }
 
 @media (max-width: 1024px) {
@@ -970,7 +1043,7 @@ body {
     width: 100%;
   }
 
-  #servicios .btn-liquid {
+  #servicios .liquid-metal-root {
     width: 100%;
   }
 }
@@ -2155,16 +2228,6 @@ body {
   box-shadow: 0 5px 15px var(--accent-glow);
 }
 
-.btn-solution.btn-liquid:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.4),
-    0 14px 8px rgba(0, 0, 0, 0.08),
-    0 8px 6px rgba(0, 0, 0, 0.12),
-    0 3px 3px rgba(0, 0, 0, 0.16),
-    0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
 /* ==========================================================================
    Technical Matrix Premium Refinements
    ========================================================================== */
@@ -2234,29 +2297,9 @@ body {
   color: var(--accent) !important;
 }
 
-.btn-solution.btn-liquid {
+.btn-solution.btn-liquid,
+.liquid-metal-root .btn-solution {
   margin-top: 8px !important;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  font-weight: 500;
-  color: #c8c8c8 !important;
-  background:
-    linear-gradient(180deg, #202020 0%, #000 100%) padding-box,
-    linear-gradient(
-      120deg,
-      #8a8a8a 0%,
-      #f2f2f2 18%,
-      #6e6e6e 36%,
-      #d9d9d9 52%,
-      #4a4a4a 70%,
-      #e8e8e8 88%,
-      #7a7a7a 100%
-    ) border-box !important;
-  background-size: 100% 100%, 280% 280% !important;
-  background-origin: border-box !important;
-  background-clip: padding-box, border-box !important;
-  border: 1.5px solid transparent !important;
-  animation: liquid-metal-shift 4.5s linear infinite;
 }
 
 .btn-solution:hover {
@@ -2265,32 +2308,9 @@ body {
   box-shadow: 0 0 20px var(--accent-glow) !important;
 }
 
-.btn-solution.btn-liquid:hover {
-  color: #f0f0f0 !important;
-  background:
-    linear-gradient(180deg, #2a2a2a 0%, #050505 100%) padding-box,
-    linear-gradient(
-      120deg,
-      #8a8a8a 0%,
-      #f2f2f2 18%,
-      #6e6e6e 36%,
-      #d9d9d9 52%,
-      #4a4a4a 70%,
-      #e8e8e8 88%,
-      #7a7a7a 100%
-    ) border-box !important;
-  background-size: 100% 100%, 280% 280% !important;
-  background-origin: border-box !important;
-  background-clip: padding-box, border-box !important;
-  border: 1.5px solid transparent !important;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.4),
-    0 14px 8px rgba(0, 0, 0, 0.08),
-    0 8px 6px rgba(0, 0, 0, 0.12),
-    0 3px 3px rgba(0, 0, 0, 0.16),
-    0 1px 2px rgba(0, 0, 0, 0.2) !important;
-  transform: translateY(-1px);
-  animation-duration: 2.2s;
+#servicios .liquid-metal-root {
+  width: 100%;
+  margin-top: 8px;
 }
 
 /* ==========================================================================
@@ -2647,25 +2667,8 @@ body {
     line-height: 1.3 !important;
   }
 
-  #servicios .btn-liquid {
-    border-radius: 999px !important;
-    color: #c8c8c8 !important;
-    background:
-      linear-gradient(180deg, #202020 0%, #000 100%) padding-box,
-      linear-gradient(
-        120deg,
-        #8a8a8a 0%,
-        #f2f2f2 18%,
-        #6e6e6e 36%,
-        #d9d9d9 52%,
-        #4a4a4a 70%,
-        #e8e8e8 88%,
-        #7a7a7a 100%
-      ) border-box !important;
-    background-size: 100% 100%, 280% 280% !important;
-    background-origin: border-box !important;
-    background-clip: padding-box, border-box !important;
-    border: 1.5px solid transparent !important;
+  #servicios .liquid-metal-root {
+    width: 100% !important;
   }
 
   .site-footer {
