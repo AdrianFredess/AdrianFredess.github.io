@@ -660,6 +660,117 @@ body {
   filter: brightness(0.95);
 }
 
+/* Liquid metal button (adaptación vanilla del efecto liquid-metal) */
+.btn-liquid {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  overflow: hidden;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 22px;
+  min-height: 46px;
+  color: #c8c8c8;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  background:
+    linear-gradient(180deg, #202020 0%, #000 100%) padding-box,
+    linear-gradient(
+      120deg,
+      #8a8a8a 0%,
+      #f2f2f2 18%,
+      #6e6e6e 36%,
+      #d9d9d9 52%,
+      #4a4a4a 70%,
+      #e8e8e8 88%,
+      #7a7a7a 100%
+    ) border-box;
+  background-size: 100% 100%, 280% 280%;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border: 1.5px solid transparent;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 18px 10px rgba(0, 0, 0, 0.04),
+    0 10px 8px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.14),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s ease,
+    filter 0.2s ease;
+  animation: liquid-metal-shift 4.5s linear infinite;
+}
+
+.btn-liquid::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 42%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-liquid:hover {
+  color: #f0f0f0;
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 14px 8px rgba(0, 0, 0, 0.08),
+    0 8px 6px rgba(0, 0, 0, 0.12),
+    0 3px 3px rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  animation-duration: 2.2s;
+}
+
+.btn-liquid:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.45),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-liquid .liquid-ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: liquid-ripple 0.6s ease-out forwards;
+  z-index: 2;
+}
+
+@keyframes liquid-metal-shift {
+  0% { background-position: 0% 50%, 0% 50%; }
+  100% { background-position: 0% 50%, 100% 50%; }
+}
+
+@keyframes liquid-ripple {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-liquid {
+    animation: none;
+  }
+
+  .btn-liquid .liquid-ripple {
+    display: none;
+  }
+}
+
 /* Grids y tarjetas */
 .projects-grid {
   display: grid;
@@ -740,6 +851,11 @@ body {
   margin-top: 4px;
   white-space: normal;
   line-height: 1.3;
+}
+
+#servicios .btn-solution.btn-liquid {
+  margin-top: 8px !important;
+  min-height: 42px;
 }
 
 @media (max-width: 1024px) {
@@ -851,6 +967,10 @@ body {
     padding: 10px 14px;
     font-size: 12px;
     border-radius: 999px;
+    width: 100%;
+  }
+
+  #servicios .btn-liquid {
     width: 100%;
   }
 }
@@ -2035,6 +2155,16 @@ body {
   box-shadow: 0 5px 15px var(--accent-glow);
 }
 
+.btn-solution.btn-liquid:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 14px 8px rgba(0, 0, 0, 0.08),
+    0 8px 6px rgba(0, 0, 0, 0.12),
+    0 3px 3px rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 /* ==========================================================================
    Technical Matrix Premium Refinements
    ========================================================================== */
@@ -2104,10 +2234,63 @@ body {
   color: var(--accent) !important;
 }
 
+.btn-solution.btn-liquid {
+  margin-top: 8px !important;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-weight: 500;
+  color: #c8c8c8 !important;
+  background:
+    linear-gradient(180deg, #202020 0%, #000 100%) padding-box,
+    linear-gradient(
+      120deg,
+      #8a8a8a 0%,
+      #f2f2f2 18%,
+      #6e6e6e 36%,
+      #d9d9d9 52%,
+      #4a4a4a 70%,
+      #e8e8e8 88%,
+      #7a7a7a 100%
+    ) border-box !important;
+  background-size: 100% 100%, 280% 280% !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  border: 1.5px solid transparent !important;
+  animation: liquid-metal-shift 4.5s linear infinite;
+}
+
 .btn-solution:hover {
   background: var(--accent) !important;
   color: #000 !important;
   box-shadow: 0 0 20px var(--accent-glow) !important;
+}
+
+.btn-solution.btn-liquid:hover {
+  color: #f0f0f0 !important;
+  background:
+    linear-gradient(180deg, #2a2a2a 0%, #050505 100%) padding-box,
+    linear-gradient(
+      120deg,
+      #8a8a8a 0%,
+      #f2f2f2 18%,
+      #6e6e6e 36%,
+      #d9d9d9 52%,
+      #4a4a4a 70%,
+      #e8e8e8 88%,
+      #7a7a7a 100%
+    ) border-box !important;
+  background-size: 100% 100%, 280% 280% !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  border: 1.5px solid transparent !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 14px 8px rgba(0, 0, 0, 0.08),
+    0 8px 6px rgba(0, 0, 0, 0.12),
+    0 3px 3px rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-1px);
+  animation-duration: 2.2s;
 }
 
 /* ==========================================================================
@@ -2462,6 +2645,27 @@ body {
     font-size: 12px !important;
     white-space: normal !important;
     line-height: 1.3 !important;
+  }
+
+  #servicios .btn-liquid {
+    border-radius: 999px !important;
+    color: #c8c8c8 !important;
+    background:
+      linear-gradient(180deg, #202020 0%, #000 100%) padding-box,
+      linear-gradient(
+        120deg,
+        #8a8a8a 0%,
+        #f2f2f2 18%,
+        #6e6e6e 36%,
+        #d9d9d9 52%,
+        #4a4a4a 70%,
+        #e8e8e8 88%,
+        #7a7a7a 100%
+      ) border-box !important;
+    background-size: 100% 100%, 280% 280% !important;
+    background-origin: border-box !important;
+    background-clip: padding-box, border-box !important;
+    border: 1.5px solid transparent !important;
   }
 
   .site-footer {

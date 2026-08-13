@@ -167,3 +167,20 @@
   }, { threshold: 0.1 });
   els.forEach(el => observer.observe(el));
 })();
+// Ripple en botones liquid-metal
+(function initLiquidButtons() {
+  const buttons = document.querySelectorAll('.btn-liquid');
+  if (!buttons.length) return;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'liquid-ripple';
+      ripple.style.left = (e.clientX - rect.left) + 'px';
+      ripple.style.top = (e.clientY - rect.top) + 'px';
+      btn.appendChild(ripple);
+      window.setTimeout(function () { ripple.remove(); }, 600);
+    });
+  });
+})();
