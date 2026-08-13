@@ -673,9 +673,9 @@ body {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Servicios: 4 columnas en desktop, responsive en tablet/mobile */
+/* Servicios: 2 columnas en desktop, 1 en mobile */
 #servicios .services-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   align-items: stretch;
 }
@@ -940,7 +940,7 @@ body {
 
 .profile-header {
   max-width: 800px;
-  margin-bottom: 48px;
+  margin-bottom: 0;
 }
 
 .profile-bio {
@@ -1294,6 +1294,7 @@ body {
 #home,
 #sobre-mi,
 #proyectos,
+#resultados,
 #servicios {
   scroll-margin-top: 90px;
 }
@@ -1672,7 +1673,8 @@ body {
   padding: 16px;
 }
 
-.modal.open {
+.modal.open,
+.modal:target {
   display: flex;
 }
 
@@ -2139,6 +2141,7 @@ body {
   #home,
   #sobre-mi,
   #proyectos,
+  #resultados,
   #servicios {
     scroll-margin-top: 64px;
   }
@@ -2685,4 +2688,46 @@ a.matrix-badge {
 a.matrix-badge:hover {
   border-color: var(--accent) !important;
   color: var(--accent) !important;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.result-card {
+  padding: 24px 20px;
+}
+
+.result-metric {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.result-card .card-desc {
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .results-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .results-grid .result-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-grid .result-card:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
 }
