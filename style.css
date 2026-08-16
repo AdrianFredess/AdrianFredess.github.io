@@ -110,6 +110,7 @@ body {
   justify-content: space-between;
   height: 56px;
   gap: 16px;
+  overflow: visible;
 }
 
 .brand {
@@ -149,11 +150,44 @@ body {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Acciones header (solo íconos) */
+/* Acciones header (íconos) + dock magnification */
 .nav-actions {
   display: flex;
   gap: 6px;
   align-items: center;
+}
+
+.header-dock {
+  height: 48px;
+  padding: 4px 6px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  align-items: flex-end;
+  overflow: visible;
+}
+
+.header-dock .icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  transition:
+    width 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.15s ease;
+  will-change: width, height;
+}
+
+.header-dock .icon-btn img,
+.header-dock .icon-btn svg {
+  transition: width 0.18s cubic-bezier(0.22, 1, 0.36, 1), height 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header-dock .icon-btn:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .icon-btn {
