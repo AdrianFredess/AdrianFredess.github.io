@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=ui-polish-v2">
+  <link rel="stylesheet" href="./style.css?v=modals-menu-ia">
 </head>
 
 <body>
@@ -71,7 +71,6 @@
     </nav>
     <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
       <div class="mobile-menu-inner">
-        <button class="mobile-close" aria-label="Cerrar menú"><span></span><span></span></button>
         <ul class="mobile-links" role="list">
           <li><a href="#home">Inicio</a></li>
           <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -164,21 +163,25 @@
           <h2 class="section-title">C&oacute;mo trabajo con IA</h2>
           <div class="ia-grid">
             <article class="ia-card">
-              <span class="ia-term">LLMs</span>
-              <h3>Modelos de lenguaje</h3>
-              <p>Los uso para explorar, escribir y revisar c&oacute;digo. El resultado siempre se valida antes de llegar a producci&oacute;n.</p>
-            </article>
-            <article class="ia-card">
-              <span class="ia-term">MCP</span>
-              <h3>Contexto conectado</h3>
-              <p>Conecto el asistente a docs, APIs y repos. As&iacute; trabaja con informaci&oacute;n real y comete menos errores.</p>
-            </article>
-            <article class="ia-card">
+              <span class="ia-index" aria-hidden="true">01</span>
               <span class="ia-term">SDD</span>
               <h3>Especificar primero</h3>
               <p>Defino requisitos y criterios de aceptaci&oacute;n antes de programar. Menos reescritura, entregas m&aacute;s claras.</p>
             </article>
             <article class="ia-card">
+              <span class="ia-index" aria-hidden="true">02</span>
+              <span class="ia-term">MCP</span>
+              <h3>Contexto conectado</h3>
+              <p>Conecto el asistente a docs, APIs y repos. As&iacute; trabaja con informaci&oacute;n real y comete menos errores.</p>
+            </article>
+            <article class="ia-card">
+              <span class="ia-index" aria-hidden="true">03</span>
+              <span class="ia-term">LLMs</span>
+              <h3>Modelos de lenguaje</h3>
+              <p>Los uso para explorar, escribir y revisar c&oacute;digo. El resultado siempre se valida antes de llegar a producci&oacute;n.</p>
+            </article>
+            <article class="ia-card">
+              <span class="ia-index" aria-hidden="true">04</span>
               <span class="ia-term">TDD</span>
               <h3>Validar con tests</h3>
               <p>Escribo tests que comprueban lo acordado. Cada funcionalidad se da por lista cuando pasa esos criterios.</p>
@@ -423,34 +426,27 @@
         <span class="case-label">Soluci&oacute;n Web</span>
         <h2>Cubika Architecture Web</h2>
       </header>
-      
+
       <div class="case-structure">
         <div class="case-section">
-          <h4>El Desafío</h4>
-          <p>Crear una presencia digital para un estudio de arquitectura que reflejara su identidad visual sin romper la est&eacute;tica minimalista.</p>
+          <h4>Desaf&iacute;o</h4>
+          <p>Presencia digital para un estudio de arquitectura, sin romper su est&eacute;tica minimalista.</p>
         </div>
         <div class="case-section">
-          <h4>Implementación</h4>
-          <p>Desarrollo de una interfaz trasl&uacute;cida (Glassmorphism), optimizando la carga de recursos y cuidando la experiencia visual del sitio.</p>
+          <h4>Implementaci&oacute;n</h4>
+          <p>UI glassmorphism, carga optimizada y experiencia visual cuidada.</p>
         </div>
         <div class="case-section">
-          <h4>Resultado Técnico</h4>
-          <p>Se logr&oacute; una presencia digital m&aacute;s clara, moderna y alineada con el perfil visual del estudio.</p>
-        </div>
-        <div class="case-section">
-          <h4>Stack utilizado</h4>
-          <div class="card-tags">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>Animaciones CSS</span>
-            <span>Glassmorphism</span>
-          </div>
+          <h4>Resultado</h4>
+          <p>Sitio m&aacute;s claro, moderno y alineado al perfil del estudio.</p>
         </div>
       </div>
 
-      <div class="case-section">
-        <h4>Evidencia Visual</h4>
+      <div class="case-meta">
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Animaciones</span><span>Glassmorphism</span>
+      </div>
+
+      <div class="case-media">
         <video class="project-video" controls playsinline preload="metadata"
           poster="cubika web proyecto 1/46a8ac6b-58a0-4409-9afd-6ee078d58b91.png">
           <source
@@ -471,37 +467,30 @@
     <div class="modal-content case-study">
       <button class="modal-close" aria-label="Cerrar modal"><span></span><span></span></button>
       <header class="case-header">
-        <span class="case-label">Sitio Web Corporativo</span>
+        <span class="case-label">Sitio corporativo</span>
         <h2>Grupo Cardozo Seguros Web</h2>
       </header>
 
       <div class="case-structure">
         <div class="case-section">
-          <h4>El Desafío</h4>
-          <p>Modernizar la captación de leads en un sector tradicional, garantizando confianza y rapidez en la comunicación de servicios complejos de seguros.</p>
+          <h4>Desaf&iacute;o</h4>
+          <p>Modernizar captaci&oacute;n de leads con confianza y claridad en seguros.</p>
         </div>
         <div class="case-section">
-          <h4>Implementación</h4>
-          <p>Desarrollo de un sitio web corporativo con foco en SEO, claridad de servicios y contacto directo v&iacute;a WhatsApp.</p>
+          <h4>Implementaci&oacute;n</h4>
+          <p>Web corporativa con SEO, servicios claros y contacto por WhatsApp.</p>
         </div>
         <div class="case-section">
-          <h4>Resultado Técnico</h4>
-          <p>Mejora de la presencia digital del negocio y del canal de contacto inicial con potenciales clientes.</p>
-        </div>
-        <div class="case-section">
-          <h4>Stack utilizado</h4>
-          <div class="card-tags">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>SEO</span>
-            <span>WhatsApp</span>
-          </div>
+          <h4>Resultado</h4>
+          <p>Mejor presencia digital y canal de contacto m&aacute;s directo.</p>
         </div>
       </div>
 
-      <div class="case-section">
-        <h4>Evidencia Visual</h4>
+      <div class="case-meta">
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>SEO</span><span>WhatsApp</span>
+      </div>
+
+      <div class="case-media">
         <video class="project-video" controls playsinline preload="metadata"
           poster="videos de proyectos/proyecto 2 video/3f3ea2f6-47e9-4919-88cc-01427464c179.png">
           <source

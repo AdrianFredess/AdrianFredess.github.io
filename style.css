@@ -306,7 +306,7 @@ body {
   transition: transform 0.22s ease, opacity 0.18s ease;
 }
 
-/* Menú móvil — panel lateral profesional */
+/* Menú móvil — panel lateral (scroll libre + cerrar tocando fuera) */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -318,18 +318,16 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.28s ease, visibility 0.28s ease;
-  background: rgba(4, 5, 8, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: transparent;
 }
 
 .mobile-menu.open {
-  pointer-events: auto;
   opacity: 1;
   visibility: visible;
 }
 
 .mobile-menu-inner {
+  pointer-events: auto;
   position: absolute;
   top: 0;
   right: 0;
@@ -355,6 +353,7 @@ body {
   transform: translateX(12px);
   opacity: 0;
   transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+  overflow-y: auto;
 }
 
 .mobile-menu.open .mobile-menu-inner {
@@ -430,33 +429,7 @@ body {
 }
 
 .mobile-close {
-  align-self: flex-end;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 8px;
-}
-
-.mobile-close span {
-  position: absolute;
-  width: 14px;
-  height: 1.5px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 2px;
-}
-
-.mobile-close span:first-child {
-  transform: rotate(45deg);
-}
-
-.mobile-close span:last-child {
-  transform: rotate(-45deg);
+  display: none !important;
 }
 
 @media (max-width: 1024px) {
@@ -1427,6 +1400,16 @@ body {
   flex-direction: column;
 }
 
+.ia-index {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(110, 231, 255, 0.7);
+}
+
 .ia-card > *,
 .matrix-category > * {
   position: relative;
@@ -2261,14 +2244,14 @@ body {
 }
 
 .modal-content {
-  width: min(1024px, 96%);
-  max-height: 90vh;
+  width: min(860px, 96%);
+  max-height: 85vh;
   overflow: auto;
   background: #131417;
   border: 1px solid #24262b;
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: var(--shadow);
-  padding: 18px;
+  padding: 16px 16px 18px;
 }
 
 .modal-close {
@@ -2492,79 +2475,108 @@ body {
 }
 
 /* ==========================================================================
-   Case Study Modal Internal Layout
+   Case Study Modal — compacto
    ========================================================================== */
 .case-study {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 14px;
+}
+
+.case-header {
+  padding-right: 40px;
 }
 
 .case-header .case-label {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   color: var(--accent);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   font-weight: 600;
 }
 
 .case-header h2 {
-  font-size: 32px;
-  margin-top: 8px;
-  background: linear-gradient(to right, #fff, var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 22px;
+  margin: 4px 0 0;
+  letter-spacing: -0.02em;
+  color: #fff;
+  background: none;
+  -webkit-text-fill-color: unset;
 }
 
 .case-structure {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .case-section h4 {
-  font-size: 14px;
+  font-size: 11px;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin: 0 0 6px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .case-section p {
-  font-size: 15px;
+  font-size: 13px;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding-top: 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.case-meta span {
+  font-size: 11px;
+  color: rgba(110, 231, 255, 0.85);
+  font-weight: 500;
+}
+
+.case-media {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .project-video {
   width: 100%;
-  border-radius: 12px !important;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: none;
   background: #000;
-  margin: 16px 0;
+  margin: 0;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 0;
 }
 
 .gallery-grid img {
   width: 100%;
-  border-radius: 12px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease;
   cursor: zoom-in;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.02);
+  transform: none;
   border-color: var(--accent);
-  box-shadow: 0 0 15px var(--accent-glow);
+  box-shadow: none;
 }
 
 /* Antigravity SVG in Matrix */
@@ -2579,6 +2591,19 @@ body {
 @media (max-width: 768px) {
   .case-structure {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-video {
+    max-height: 200px;
+  }
+
+  .case-header h2 {
+    font-size: 18px;
   }
 }
 
@@ -3120,7 +3145,7 @@ a.matrix-badge:hover {
   }
 
   .case-study {
-    gap: 14px !important;
+    gap: 10px !important;
   }
 
   .case-header .case-label {
@@ -3129,35 +3154,44 @@ a.matrix-badge:hover {
   }
 
   .case-header h2 {
-    font-size: 18px !important;
-    margin-top: 4px !important;
+    font-size: 16px !important;
+    margin-top: 2px !important;
   }
 
   .case-section h4 {
     font-size: 10px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
   }
 
   .case-section p {
     font-size: 12px !important;
-    line-height: 1.45 !important;
+    line-height: 1.4 !important;
   }
 
   .case-structure {
-    gap: 12px !important;
+    gap: 8px !important;
+  }
+
+  .case-meta {
+    gap: 6px 10px !important;
+  }
+
+  .case-meta span {
+    font-size: 10px !important;
   }
 
   .gallery-grid {
-    gap: 8px !important;
-    margin-top: 10px !important;
+    gap: 6px !important;
+    margin-top: 0 !important;
   }
 
   .gallery-grid img {
-    border-radius: 8px !important;
+    border-radius: 6px !important;
   }
 
   .project-video {
-    margin: 6px 0 8px !important;
+    margin: 0 !important;
+    max-height: 180px !important;
     border-radius: 8px !important;
   }
 

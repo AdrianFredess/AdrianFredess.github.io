@@ -127,32 +127,37 @@
 (function initMobileNav() {
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.querySelector('.mobile-menu');
-  const close = document.querySelector('.mobile-close');
+  const inner = document.querySelector('.mobile-menu-inner');
   const links = document.querySelectorAll('.mobile-links a');
 
-  if (!toggle || !menu) return;
+  if (!toggle || !menu || !inner) return;
 
   const openMenu = () => {
     menu.classList.add('open');
     menu.setAttribute('aria-hidden', 'false');
     toggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
   };
 
   const closeMenu = () => {
     menu.classList.remove('open');
     menu.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
   };
 
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (menu.classList.contains('open')) closeMenu();
     else openMenu();
   });
-  if (close) close.addEventListener('click', (e) => { e.stopPropagation(); closeMenu(); });
-  menu.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
-  links.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Cerrar al tocar fuera del panel (sin bloquear scroll de la página)
+  document.addEventListener('pointerdown', (e) => {
+    if (!menu.classList.contains('open')) return;
+    if (inner.contains(e.target) || toggle.contains(e.target)) return;
+    closeMenu();
+  });
+
+  links.forEach((link) => link.addEventListener('click', closeMenu));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
   });
