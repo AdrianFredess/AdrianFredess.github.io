@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=header-icons-22">
+  <link rel="stylesheet" href="./style.css?v=ia-cards">
 </head>
 
 <body>
@@ -138,7 +138,7 @@
           <div class="profile-header">
             <p class="lead-text">Soy desarrollador full-stack de 21 años, de Mendoza, Argentina. Diseño e implemento sistemas que integran inteligencia artificial para automatizar tareas repetitivas y procesos manuales — no como un experimento aislado, sino como parte funcional del producto final.</p>
             <p class="profile-bio">Trabajo con Node.js, Python, Java/Spring Boot y bases de datos en el backend, y con React/TypeScript en el frontend. También automatizo procesos con n8n, conectando herramientas y datos para ahorrar tiempo real a quien los usa.</p>
-            <p class="profile-bio">Organizo mi trabajo con metodología SDD —defino las especificaciones y criterios de aceptación ANTES de programar, para evitar reescribir código a medio camino— y complemento con TDD —escribo los tests que validan el resultado esperado antes o junto con el código, no después—.</p>
+            <p class="profile-bio">Organizo el trabajo con SDD y TDD: primero especifico qué hay que lograr, después valido con tests. Así el código queda predecible y mantenible.</p>
           </div>
         </div>
 
@@ -162,134 +162,137 @@
 
     <section id="ia-expertise-wrapper" class="section reveal">
       <div class="container">
-        <section id="ia-expertise" aria-label="IA, LLMs, MCP y metodología de trabajo">
-          <h2 class="section-title">IA, LLMs, MCP, SDD y TDD</h2>
-          <div class="grid services-grid">
-            <article class="card service-card high-impact">
-              <div class="service-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m4.93 19.07 4.24-4.24"/></svg>
-              </div>
-              <div class="card-content">
-                <h3>IA y LLMs en el c&oacute;digo</h3>
-                <p class="card-desc">Uso <strong>LLMs</strong> y editores asistidos (Cursor, Claude, Antigravity, ChatGPT, Gemini CLI) para explorar ideas, refactorizar, depurar y documentar, siempre validando el resultado.</p>
-                <div class="card-tags">
-                  <span>LLMs</span>
-                  <span>Cursor</span>
-                  <span>Claude</span>
-                  <span>ChatGPT</span>
-                  <span>Gemini CLI</span>
-                </div>
-              </div>
+        <section id="ia-expertise" aria-label="Cómo trabajo con IA">
+          <h2 class="section-title">C&oacute;mo trabajo con IA</h2>
+          <p class="ia-lead">Uso inteligencia artificial como parte del flujo de desarrollo: con m&eacute;todo, contexto real y validaci&oacute;n. No como atajo sin control.</p>
+          <div class="ia-grid">
+            <article class="ia-card">
+              <span class="ia-term">LLMs</span>
+              <h3>Modelos de lenguaje</h3>
+              <p>Los uso para explorar, escribir y revisar c&oacute;digo. El resultado siempre se valida antes de llegar a producci&oacute;n.</p>
             </article>
-            <article class="card service-card high-impact">
-              <div class="service-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-              </div>
-              <div class="card-content">
-                <h3>Metodolog&iacute;a SDD, TDD y conexi&oacute;n MCP</h3>
-                <p class="card-desc">Trabajo con <strong>metodolog&iacute;a SDD</strong> (defino especificaciones y criterios claros antes de programar, para que el resultado sea predecible): parto de flujos, APIs y casos de uso, valido cada entrega contra ellos y dejo decisiones registradas. Complemento con <strong>TDD</strong> (escribo tests que validan cada funcionalidad contra los criterios definidos, antes de darla por terminada). Con <strong>MCP</strong> conecto modelos y agentes a fuentes de verdad (docs, APIs, repos) y reduzco trabajo repetitivo.</p>
-                <div class="card-tags">
-                  <span>SDD</span>
-                  <span>TDD</span>
-                  <span>MCP</span>
-                  <span>Agentes</span>
-                  <span>Contexto</span>
-                </div>
-              </div>
+            <article class="ia-card">
+              <span class="ia-term">MCP</span>
+              <h3>Contexto conectado</h3>
+              <p>Conecto el asistente a docs, APIs y repos. As&iacute; trabaja con informaci&oacute;n real y comete menos errores.</p>
             </article>
-            <article class="card service-card high-impact">
-              <div class="service-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="m16.24 7.76 2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
-              </div>
-              <div class="card-content">
-                <h3>Automatizaciones con n8n</h3>
-                <p class="card-desc">Dise&ntilde;o y mantengo flujos en <strong>n8n</strong>: disparadores, nodos, llamadas a <strong>APIs</strong>, <strong>webhooks</strong>, transformaci&oacute;n de datos y manejo de errores. Complemento con <strong>Claude</strong> y otras IAs para planificar integraciones, revisar l&oacute;gica y documentar el flujo de punta a punta.</p>
-                <div class="card-tags">
-                  <span>n8n</span>
-                  <span>Webhooks</span>
-                  <span>APIs</span>
-                </div>
-              </div>
+            <article class="ia-card">
+              <span class="ia-term">SDD</span>
+              <h3>Especificar primero</h3>
+              <p>Defino requisitos y criterios de aceptaci&oacute;n antes de programar. Menos reescritura, entregas m&aacute;s claras.</p>
+            </article>
+            <article class="ia-card">
+              <span class="ia-term">TDD</span>
+              <h3>Validar con tests</h3>
+              <p>Escribo tests que comprueban lo acordado. Cada funcionalidad se da por lista cuando pasa esos criterios.</p>
             </article>
           </div>
         </section>
 
-        <section class="tech-matrix reveal" aria-label="Matriz de Tecnologías">
-          <h2 class="section-title">Technical Mastery & Stack</h2>
+        <section class="tech-matrix reveal" aria-label="Stack técnico">
+          <h2 class="section-title">Stack técnico</h2>
+          <p class="matrix-lead">Tecnologías y herramientas con las que diseño, construyo e integro soluciones.</p>
           <div class="matrix-grid">
-            <div class="matrix-category">
-              <h3>Backend & Core</h3>
+            <article class="matrix-category">
+              <header class="matrix-cat-head">
+                <span class="matrix-cat-index" aria-hidden="true">01</span>
+                <div class="matrix-cat-copy">
+                  <h3>Backend</h3>
+                  <p>Lenguajes, frameworks y bases de datos</p>
+                </div>
+              </header>
               <div class="matrix-items">
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt=""> Node.js</span>
+                <span class="matrix-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt=""> Java</span>
                 <span class="matrix-badge"><img src="https://cdn.simpleicons.org/python/3776AB" alt=""> Python</span>
-                <span class="matrix-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"> Java</span>
-                <span class="matrix-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot"> Spring Boot</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt=""> Node.js</span>
+                <span class="matrix-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt=""> Spring Boot</span>
                 <span class="matrix-badge"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt=""> PostgreSQL</span>
                 <span class="matrix-badge"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt=""> MongoDB</span>
+              </div>
+            </article>
+            <article class="matrix-category">
+              <header class="matrix-cat-head">
+                <span class="matrix-cat-index" aria-hidden="true">02</span>
+                <div class="matrix-cat-copy">
+                  <h3>Frontend</h3>
+                  <p>Web, UI y tooling de build</p>
+                </div>
+              </header>
+              <div class="matrix-items">
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/html5/E34F26" alt=""> HTML5</span>
+                <span class="matrix-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg" alt=""> CSS</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt=""> JavaScript</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt=""> TypeScript</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/react/61DAFB" alt=""> React</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/astro/FF5D01" alt=""> Astro</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/vite/646CFF" alt=""> Vite</span>
+              </div>
+            </article>
+            <article class="matrix-category">
+              <header class="matrix-cat-head">
+                <span class="matrix-cat-index" aria-hidden="true">03</span>
+                <div class="matrix-cat-copy">
+                  <h3>IA &amp; metodolog&iacute;a</h3>
+                  <p>Proceso de trabajo e integraci&oacute;n de LLMs</p>
+                </div>
+              </header>
+              <div class="matrix-block">
+                <p class="matrix-group-label">Metodolog&iacute;a</p>
+                <div class="matrix-items">
+                  <span class="matrix-badge matrix-badge--concept">SDD</span>
+                  <span class="matrix-badge matrix-badge--concept">TDD</span>
+                  <span class="matrix-badge matrix-badge--concept">MCP</span>
+                  <span class="matrix-badge matrix-badge--concept">LLMs</span>
+                </div>
+              </div>
+              <div class="matrix-block">
+                <p class="matrix-group-label">Herramientas</p>
+                <div class="matrix-items">
+                  <span class="matrix-badge"><img src="https://www.cursor.com/assets/images/logo.svg" alt=""> Cursor</span>
+                  <span class="matrix-badge"><img src="https://cdn.simpleicons.org/anthropic/D97757" alt=""> Claude</span>
+                  <span class="matrix-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/ChatGPT-Logo.svg" alt=""> ChatGPT</span>
+                  <span class="matrix-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="antigravityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" style="stop-color:#3B82F6" />
+                          <stop offset="50%" style="stop-color:#10B981" />
+                          <stop offset="100%" style="stop-color:#EF4444" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M3 17C5.4 17 6.2 8 9 8C11.8 8 11.6 20 15 20C18 20 18.6 11 21 11" stroke="url(#antigravityGrad)" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                      <circle cx="3" cy="17" r="1.7" fill="#3B82F6" />
+                      <circle cx="9" cy="8" r="1.7" fill="#10B981" />
+                      <circle cx="15" cy="20" r="1.7" fill="#F59E0B" />
+                      <circle cx="21" cy="11" r="1.7" fill="#EF4444" />
+                    </svg>
+                    Antigravity
+                  </span>
+                  <span class="matrix-badge"><img src="https://cdn.simpleicons.org/ollama/ffffff" alt=""> Ollama</span>
+                  <span class="matrix-badge"><img src="https://cdn.simpleicons.org/google/4285F4" alt=""> Gemini CLI</span>
+                  <span class="matrix-badge"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt=""> eve</span>
+                </div>
+              </div>
+            </article>
+            <article class="matrix-category">
+              <header class="matrix-cat-head">
+                <span class="matrix-cat-index" aria-hidden="true">04</span>
+                <div class="matrix-cat-copy">
+                  <h3>Automatizaci&oacute;n &amp; DevOps</h3>
+                  <p>Flujos, contenedores, versionado y testing de APIs</p>
+                </div>
+              </header>
+              <div class="matrix-items">
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt=""> n8n</span>
                 <span class="matrix-badge"><img src="https://cdn.simpleicons.org/docker/2496ED" alt=""> Docker</span>
-              </div>
-            </div>
-            <div class="matrix-category">
-              <h3>Frontend & Web</h3>
-              <div class="matrix-items">
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React"> React</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/vite/646CFF" alt="Vite"> Vite</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/astro/FF5D01" alt="Astro"> Astro</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript"> JavaScript</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript"> TypeScript</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5"> HTML5</span>
-                <span class="matrix-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg" alt="CSS"> CSS</span>
-              </div>
-            </div>
-            <div class="matrix-category">
-              <h3>Herramientas IA</h3>
-              <div class="matrix-items">
-                <span class="matrix-badge">LLMs</span>
-                <span class="matrix-badge">MCP</span>
-                <span class="matrix-badge">Metodolog&iacute;a SDD</span>
-                <span class="matrix-badge">TDD</span>
-                <span class="matrix-badge"><img src="https://www.cursor.com/assets/images/logo.svg" alt="Cursor"> Cursor</span>
-                <span class="matrix-badge">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-right: -4px;">
-                    <defs>
-                      <linearGradient id="antigravityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#3B82F6" />
-                        <stop offset="50%" style="stop-color:#10B981" />
-                        <stop offset="100%" style="stop-color:#EF4444" />
-                      </linearGradient>
-                    </defs>
-                    <path d="M3 17C5.4 17 6.2 8 9 8C11.8 8 11.6 20 15 20C18 20 18.6 11 21 11" stroke="url(#antigravityGrad)" stroke-width="2.5" stroke-linecap="round" fill="none" />
-                    <circle cx="3" cy="17" r="1.7" fill="#3B82F6" />
-                    <circle cx="9" cy="8" r="1.7" fill="#10B981" />
-                    <circle cx="15" cy="20" r="1.7" fill="#F59E0B" />
-                    <circle cx="21" cy="11" r="1.7" fill="#EF4444" />
-                  </svg>
-                  Antigravity
-                </span>
-                <span class="matrix-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/ChatGPT-Logo.svg" alt="ChatGPT"> ChatGPT</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Claude"> Claude</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/ollama/ffffff" alt="Ollama"> Ollama</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/google/4285F4" alt="Gemini CLI"> Gemini CLI</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="eve"> eve</span>
-              </div>
-            </div>
-            <div class="matrix-category">
-              <h3>Automatizaci&oacute;n</h3>
-              <div class="matrix-items">
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n"> n8n</span>
-              </div>
-            </div>
-            <div class="matrix-category">
-              <h3>Modern Infrastructure</h3>
-              <div class="matrix-items">
-                <span class="matrix-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/DBeaver_logo.svg" alt="DBeaver"> DBeaver</span>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git"> Git</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/git/F05032" alt=""> Git</span>
                 <a class="matrix-badge" href="https://github.com/adrianfredes10" target="_blank" rel="noopener">
-                  <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"> GitHub
+                  <img src="https://cdn.simpleicons.org/github/ffffff" alt=""> GitHub
                 </a>
-                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman"> Postman</span>
+                <span class="matrix-badge"><img src="https://cdn.simpleicons.org/postman/FF6C37" alt=""> Postman</span>
+                <span class="matrix-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/DBeaver_logo.svg" alt=""> DBeaver</span>
               </div>
-            </div>
+            </article>
           </div>
         </section>
       </div>
@@ -353,7 +356,7 @@
             </div>
             <div class="card-content">
               <h3>Automatización de Procesos con IA</h3>
-              <p class="card-desc">Conecto tus herramientas y datos con flujos automáticos (n8n) e integración de inteligencia artificial (LLMs), para eliminar tareas manuales repetitivas. Trabajo con metodología SDD (especificación y validación frente a requisitos acordados, antes de programar) y TDD (tests que validan cada funcionalidad contra esos criterios) para que cada automatización sea predecible y fácil de mantener.</p>
+              <p class="card-desc">Conecto herramientas y datos con n8n e integro LLMs para eliminar tareas manuales. Trabajo con SDD y TDD para que cada automatización sea predecible y fácil de mantener.</p>
               <div class="card-tags">
                 <span>n8n</span>
                 <span>LLMs</span>
