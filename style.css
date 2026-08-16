@@ -158,9 +158,9 @@ body {
 
 .icon-btn {
   color: #fff;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -182,8 +182,8 @@ body {
 
 .icon-btn svg,
 .icon-btn img {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   display: block;
 }
 
