@@ -134,20 +134,28 @@
 
   const openMenu = () => {
     menu.classList.add('open');
+    menu.setAttribute('aria-hidden', 'false');
     toggle.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   };
 
   const closeMenu = () => {
     menu.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
-  toggle.addEventListener('click', openMenu);
+  toggle.addEventListener('click', () => {
+    if (menu.classList.contains('open')) closeMenu();
+    else openMenu();
+  });
   if (close) close.addEventListener('click', (e) => { e.stopPropagation(); closeMenu(); });
   menu.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
   links.forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+  });
 })();
 
 // IntersectionObserver para revelar elementos al hacer scroll
