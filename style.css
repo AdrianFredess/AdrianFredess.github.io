@@ -150,7 +150,7 @@ body {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Acciones header — Dock (framer-motion) */
+/* Acciones header — dock (íconos siempre visibles en HTML) */
 .nav-actions {
   display: flex;
   gap: 6px;
@@ -158,65 +158,34 @@ body {
   overflow: visible;
 }
 
-.dock {
-  margin: 0;
-  display: flex;
-  height: 58px;
-  width: max-content;
-  gap: 8px;
+.header-dock {
+  height: 52px;
+  padding: 4px 6px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  align-items: center;
   overflow: visible;
 }
 
-.dock.items-start {
-  align-items: flex-start;
-}
-
-.dock.items-center {
-  align-items: center;
-}
-
-.dock.items-end {
-  align-items: flex-end;
-}
-
-.dock-icon {
-  display: flex;
-  aspect-ratio: 1;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
+.header-dock .icon-btn {
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
+  will-change: width, height;
 }
 
-.dock-link.icon-btn {
-  width: 100%;
-  height: 100%;
-  border-radius: 999px;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  border: none;
-  background: rgba(255, 255, 255, 0.04);
-  transition: background 0.15s ease;
-}
-
-.dock-link.icon-btn:hover {
+.header-dock .icon-btn:hover {
   transform: none;
   background: rgba(255, 255, 255, 0.12);
 }
 
-.dock-link.icon-btn img,
-.dock-link.icon-btn svg {
-  width: 24px;
-  height: 24px;
+.header-dock .icon-btn img,
+.header-dock .icon-btn svg {
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
 }
 
@@ -977,17 +946,31 @@ body {
 @media (max-width: 1024px) {
   .services-grid,
   #servicios .services-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .services-lead {
-    margin-bottom: 20px;
-    font-size: 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
   }
 
   #servicios .service-card {
-    padding: 18px 16px 16px 18px;
+    padding: 10px 8px;
+  }
+
+  #servicios .service-card h3 {
+    font-size: 13px;
+  }
+
+  #servicios .service-card .card-desc {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  #servicios .card-tags span {
+    font-size: 9px;
+    padding: 2px 6px;
   }
 }
 
@@ -1718,13 +1701,13 @@ body {
   }
 
   .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   #servicios .services-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .tech-section {
@@ -1832,17 +1815,17 @@ body {
   }
 
   .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .services-grid .service-card:nth-child(3):nth-last-child(1) {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
 
   #servicios .services-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
   #servicios .services-grid .service-card:nth-child(3):nth-last-child(1) {
@@ -2688,17 +2671,17 @@ a.matrix-badge:hover {
   }
 
   .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 10px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
   }
 
   .services-grid .service-card:nth-child(3):nth-last-child(1) {
-    grid-column: 1 / -1;
+    grid-column: auto !important;
   }
 
   #servicios .services-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
   }
 
   #servicios .services-grid .service-card:nth-child(3):nth-last-child(1) {
@@ -2735,12 +2718,13 @@ a.matrix-badge:hover {
   }
 
   #servicios .service-card.high-impact {
-    padding: 16px 14px !important;
-    gap: 12px !important;
-    border-radius: 14px !important;
+    padding: 8px 6px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
     text-align: left !important;
+    min-width: 0 !important;
   }
 
   .service-card.high-impact h3 {
@@ -2749,10 +2733,11 @@ a.matrix-badge:hover {
     line-height: 1.25;
   }
 
-  #servicios .service-card.high-impact h3 {
-    font-size: 15px !important;
-    margin-bottom: 0 !important;
-    line-height: 1.3 !important;
+  #servicios .service-card.high-impact h3,
+  #servicios .service-card h3 {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
   }
 
   .service-card .card-desc,
@@ -2763,74 +2748,57 @@ a.matrix-badge:hover {
 
   #servicios .service-card .card-desc,
   #servicios .service-card.high-impact .card-desc {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
-    display: block !important;
-    -webkit-line-clamp: unset !important;
-    overflow: visible !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+    overflow: hidden !important;
+    margin: 0 0 6px !important;
   }
 
-  .service-icon {
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 10px !important;
-    margin-bottom: 0 !important;
+  #servicios .service-index {
+    font-size: 9px !important;
+    margin-bottom: 2px !important;
+    opacity: 0.55;
   }
 
-  .service-icon svg {
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  #servicios .service-icon {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 10px !important;
-    flex-shrink: 0 !important;
-  }
-
-  #servicios .service-icon svg {
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  .card-tags {
+  #servicios .service-card .card-content {
     gap: 4px !important;
-  }
-
-  .card-tags span {
-    font-size: 8px !important;
-    padding: 2px 6px !important;
-    letter-spacing: 0.06em;
+    min-width: 0 !important;
   }
 
   #servicios .card-tags {
-    gap: 6px !important;
-  }
-
-  #servicios .card-tags span {
-    font-size: 10px !important;
-    padding: 4px 8px !important;
-  }
-
-  .btn-solution {
-    margin-top: 12px !important;
-    padding: 8px 14px !important;
-    font-size: 10px !important;
-    letter-spacing: 0.04em;
-    border-radius: 999px !important;
+    display: none !important;
   }
 
   #servicios .btn-solution {
-    margin-top: 8px !important;
-    padding: 10px 14px !important;
-    font-size: 12px !important;
-    white-space: normal !important;
-    line-height: 1.3 !important;
+    margin-top: 4px !important;
+    padding: 6px 4px !important;
+    font-size: 9px !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    width: 100% !important;
+    text-align: center !important;
   }
 
   #servicios .liquid-metal-root {
     width: 100% !important;
+  }
+
+  #servicios .liquid-metal-scene {
+    height: 32px !important;
+  }
+
+  #servicios .liquid-metal-label {
+    font-size: 9px !important;
+    padding: 0 2px !important;
+  }
+
+  #servicios .services-lead,
+  #servicios .services-note {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
   }
 
   .site-footer {
