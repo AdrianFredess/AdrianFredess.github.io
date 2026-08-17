@@ -98,7 +98,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1200;
   backdrop-filter: blur(16px) saturate(150%);
   background: hsla(240, 10%, 4%, 0.82);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -264,6 +264,8 @@ body {
 /* Botón hamburguesa (tablet/móvil) */
 .nav-toggle {
   display: none;
+  position: relative;
+  z-index: 1300;
   width: 40px;
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -274,24 +276,31 @@ body {
   justify-content: center;
   padding: 0;
   margin-left: auto;
-  flex-direction: column;
-  gap: 6px;
+  flex-shrink: 0;
 }
 
 .nav-toggle .bar {
-  width: 22px;
-  height: 2px;
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 1.5px;
+  margin-left: -9px;
   background: var(--text);
   display: block;
   border-radius: 1px;
+  transition: transform 0.22s ease, opacity 0.18s ease;
 }
+
+.nav-toggle .bar:nth-child(1) { transform: translateY(-5px); }
+.nav-toggle .bar:nth-child(2) { transform: translateY(0); }
+.nav-toggle .bar:nth-child(3) { transform: translateY(5px); }
 
 .nav-toggle[aria-expanded="true"] {
   background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
@@ -299,66 +308,44 @@ body {
 }
 
 .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
-.nav-toggle .bar {
-  transition: transform 0.22s ease, opacity 0.18s ease;
-}
-
-/* Menú móvil — panel lateral (scroll libre + cerrar tocando fuera) */
+/* Menú móvil — dropdown debajo del header */
 .mobile-menu {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  max-width: none;
-  display: block;
-  z-index: 1200;
+  top: 60px;
+  right: 16px;
+  left: auto;
+  bottom: auto;
+  width: min(280px, calc(100vw - 24px));
+  z-index: 1100;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.28s ease, visibility 0.28s ease;
-  background: transparent;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
 }
 
 .mobile-menu.open {
+  pointer-events: auto;
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 }
 
 .mobile-menu-inner {
-  pointer-events: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(320px, 88vw);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(18, 19, 24, 0.98) 0%,
-      rgba(10, 11, 14, 0.98) 100%
-    );
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  border-radius: 0;
-  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.45);
-  padding: 28px 22px 28px;
-  border: none;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  background: rgba(16, 17, 22, 0.96);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  padding: 10px 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  align-items: stretch;
-  transform: translateX(12px);
-  opacity: 0;
-  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
-  overflow-y: auto;
-}
-
-.mobile-menu.open .mobile-menu-inner {
-  transform: translateX(0);
-  opacity: 1;
+  gap: 10px;
 }
 
 .mobile-links {
@@ -367,37 +354,26 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  flex: 1;
 }
 
 .mobile-links a {
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.86);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 4px;
-  border-radius: 0;
-  background: transparent;
-  border: none;
+  display: block;
+  padding: 12px 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   text-align: left;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.01em;
-  transition: color 0.15s ease, padding-left 0.15s ease;
 }
 
-.mobile-links a:hover,
-.mobile-links a:focus-visible {
-  color: #fff;
-  padding-left: 6px;
-  background: transparent;
+.mobile-links li:last-child a {
+  border-bottom: none;
 }
 
 .mobile-links a:active {
-  transform: none;
+  color: #fff;
 }
 
 .btn-contactar-mobile {
@@ -407,25 +383,15 @@ body {
 .mobile-actions {
   display: flex;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  padding-top: 8px;
+  padding: 4px 4px 2px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  position: relative;
-  z-index: 1;
 }
 
 .mobile-actions .icon-btn {
-  pointer-events: auto;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-
-.mobile-actions .icon-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.14);
-  transform: translateY(-1px);
 }
 
 .mobile-close {
@@ -433,53 +399,32 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .mobile-menu-inner {
-    padding: 24px 20px 24px;
-    gap: 24px;
-  }
-
-  .mobile-links a {
-    font-size: 15px;
-    padding: 13px 2px;
-  }
-
-  .mobile-actions {
-    gap: 8px;
+  .mobile-menu {
+    top: 64px;
+    right: 16px;
   }
 }
 
 @media (max-width: 640px) {
   .mobile-menu {
-    width: 100%;
-    max-width: none;
+    top: 58px;
+    right: 12px;
+    width: min(260px, calc(100vw - 20px));
   }
 
   .mobile-menu-inner {
-    width: min(300px, 90vw);
-    padding: 22px 18px 22px;
-    gap: 22px;
-  }
-
-  .mobile-links {
-    gap: 4px;
-  }
-
-  .mobile-links a {
-    font-size: 15px;
-    padding: 12px 2px;
-    background: transparent;
-    border-radius: 0;
-    text-align: left;
-  }
-
-  .mobile-actions {
-    flex-wrap: nowrap;
+    padding: 8px 10px 12px;
     gap: 8px;
   }
 
+  .mobile-links a {
+    font-size: 14px;
+    padding: 11px 8px;
+  }
+
   .mobile-actions .icon-btn {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
   }
 }
 
@@ -2741,17 +2686,11 @@ a.matrix-badge:hover {
   .nav-toggle {
     width: 34px;
     height: 34px;
-    gap: 4px;
   }
 
   .nav-toggle .bar {
     width: 16px;
-  }
-
-  .mobile-menu {
-    /* panel full-screen backdrop (no floating chip) */
-    top: 0;
-    right: 0;
+    margin-left: -8px;
   }
 
   .hero {

@@ -136,12 +136,14 @@
     menu.classList.add('open');
     menu.setAttribute('aria-hidden', 'false');
     toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar menú');
   };
 
   const closeMenu = () => {
     menu.classList.remove('open');
     menu.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
   };
 
   toggle.addEventListener('click', (e) => {
@@ -150,12 +152,21 @@
     else openMenu();
   });
 
-  // Cerrar al tocar fuera del panel (sin bloquear scroll de la página)
+  // Cerrar con un tap fuera, no al empezar a scrollear
+  let tapX = 0;
+  let tapY = 0;
   document.addEventListener('pointerdown', (e) => {
+    tapX = e.clientX;
+    tapY = e.clientY;
+  }, { passive: true });
+
+  document.addEventListener('pointerup', (e) => {
     if (!menu.classList.contains('open')) return;
     if (inner.contains(e.target) || toggle.contains(e.target)) return;
+    const moved = Math.abs(e.clientX - tapX) > 12 || Math.abs(e.clientY - tapY) > 12;
+    if (moved) return;
     closeMenu();
-  });
+  }, { passive: true });
 
   links.forEach((link) => link.addEventListener('click', closeMenu));
   document.addEventListener('keydown', (e) => {
