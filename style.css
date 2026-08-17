@@ -2125,19 +2125,44 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
-.lightbox-close {
-  position: fixed;
-  top: 14px;
-  right: 14px;
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
   width: 36px;
   height: 36px;
   border-radius: 10px;
   border: 1px solid #2a2c33;
   background: #1a1b1f;
+  color: #fff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   z-index: 2200;
+}
+
+.lightbox-close {
+  top: 14px;
+  right: 14px;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.lightbox-prev {
+  left: 14px;
+}
+
+.lightbox-next {
+  right: 14px;
+}
+
+.lightbox-nav[hidden] {
+  display: none;
 }
 
 .lightbox-close span {

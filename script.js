@@ -103,24 +103,70 @@
     });
   });
 
-  // Lightbox para imágenes de la galería
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('.gallery-grid img')) {
-      const img = e.target;
-      if (lightbox && lightboxImg) {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('open');
-      }
+  const lightboxPrev = document.querySelector('.lightbox-prev');
+  const lightboxNext = document.querySelector('.lightbox-next');
+  let galleryImages = [];
+  let galleryIndex = 0;
+
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    if (lightboxImg) {
+      lightboxImg.removeAttribute('src');
+      lightboxImg.alt = '';
     }
+  };
+
+  const showLightbox = (index) => {
+    if (!lightbox || !lightboxImg || !galleryImages.length) return;
+    galleryIndex = (index + galleryImages.length) % galleryImages.length;
+    const current = galleryImages[galleryIndex];
+    lightboxImg.src = current.src;
+    lightboxImg.alt = current.alt || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    const many = galleryImages.length > 1;
+    if (lightboxPrev) lightboxPrev.hidden = !many;
+    if (lightboxNext) lightboxNext.hidden = !many;
+  };
+
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest('.gallery-grid img');
+    if (!img) return;
+    const grid = img.closest('.gallery-grid');
+    galleryImages = Array.from(grid.querySelectorAll('img'));
+    showLightbox(galleryImages.indexOf(img));
   });
 
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox || e.target.closest('.lightbox-close')) {
-        lightbox.classList.remove('open');
+        closeLightbox();
       }
     });
   }
+
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showLightbox(galleryIndex - 1);
+    });
+  }
+
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showLightbox(galleryIndex + 1);
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox || !lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showLightbox(galleryIndex - 1);
+    if (e.key === 'ArrowRight') showLightbox(galleryIndex + 1);
+  });
 })();
 
 // Navegación móvil

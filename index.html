@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=alto-chori">
+  <link rel="stylesheet" href="./style.css?v=lightbox-nav">
 </head>
 
 <body>
@@ -308,8 +308,8 @@
         <div class="grid projects-grid">
           <article class="card project-card">
             <div class="card-media">
-              <img src="videos de proyectos/alto chori/caja.jpg"
-                alt="Alto Chori — pantalla de caja" loading="lazy">
+              <img src="videos de proyectos/alto chori/login.jpg"
+                alt="Alto Chori — pantalla de login" loading="lazy">
               <span class="project-badge">Caso de estudio</span>
             </div>
             <div class="card-body">
@@ -562,7 +562,7 @@
         </div>
         <div class="case-media">
           <video class="project-video" controls playsinline preload="metadata"
-            poster="videos de proyectos/alto chori/caja.jpg">
+            poster="videos de proyectos/alto chori/login.jpg">
             <source src="videos de proyectos/alto chori/0817.mp4" type="video/mp4">
           </video>
           <div class="gallery-grid">
@@ -575,11 +575,15 @@
       </div>
     </div>
   </div>
-    <button class="lightbox-close" aria-label="Cerrar imagen"><span></span><span></span></button>
-    <img id="lightbox-img" alt="Vista de proyecto" />
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" aria-label="Cerrar imagen"><span></span><span></span></button>
+    <button type="button" class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
+    <img id="lightbox-img" alt="">
+    <button type="button" class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="./script.js?v=lightbox-nav"></script>
   <script src="./header-dock.js"></script>
   <script type="module" src="./liquid-metal-buttons.js"></script>
 </body>
