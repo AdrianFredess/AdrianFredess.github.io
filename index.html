@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=case-premium">
+  <link rel="stylesheet" href="./style.css?v=alto-chori">
 </head>
 
 <body>
@@ -308,6 +308,19 @@
         <div class="grid projects-grid">
           <article class="card project-card">
             <div class="card-media">
+              <img src="videos de proyectos/alto chori/caja.jpg"
+                alt="Alto Chori — pantalla de caja" loading="lazy">
+              <span class="project-badge">Caso de estudio</span>
+            </div>
+            <div class="card-body">
+              <p class="result-metric">Gastronom&iacute;a · POS</p>
+              <h3>Alto Chori</h3>
+              <p class="card-desc">Sistema de caja, cocina y stock para parrilla.</p>
+              <a href="#modal-p3" class="card-link open-modal" data-modal="#modal-p3" aria-controls="modal-p3">Ver caso</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <div class="card-media">
               <img src="cubika web proyecto 1/46a8ac6b-58a0-4409-9afd-6ee078d58b91.png"
                 alt="Proyecto 1 - imagen principal" loading="lazy">
               <span class="project-badge">Caso de estudio</span>
@@ -514,7 +527,54 @@
     </div>
   </div>
 
-  <div id="lightbox" class="lightbox" aria-hidden="true">
+  <div id="modal-p3" class="modal" aria-hidden="true">
+    <div class="modal-content case-study">
+      <button class="modal-close" aria-label="Cerrar modal"><span></span><span></span></button>
+      <header class="case-header">
+        <span class="case-label">Gastronom&iacute;a · POS de escritorio</span>
+        <h2>Alto Chori</h2>
+        <p class="case-summary">POS local para un local de chorip&aacute;n: pedidos, cocina, inventario y usuarios. Lo usa el staff (admin, caja y cocina), no el cliente final. Corre en la PC del local y se abre en tablet por WiFi.</p>
+      </header>
+
+      <div class="case-body">
+        <div class="case-copy">
+          <div class="case-structure">
+            <div class="case-section">
+              <span class="case-step">01</span>
+              <h4>Desaf&iacute;o</h4>
+              <p>Operar pedidos y stock en PC y tablet, sin nube ni carta digital para clientes.</p>
+            </div>
+            <div class="case-section">
+              <span class="case-step">02</span>
+              <h4>Qu&eacute; hice</h4>
+              <p>App instalable (Electron) con API propia, roles JWT, pedidos en tiempo real y recetas que descuentan stock.</p>
+            </div>
+            <div class="case-section">
+              <span class="case-step">03</span>
+              <h4>Resultado</h4>
+              <p>Caja y cocina ven el mismo pedido al instante. El admin controla productos, usuarios e historial en una sola app.</p>
+            </div>
+          </div>
+          <div class="case-meta">
+            <span>React</span><span>TypeScript</span><span>FastAPI</span><span>Electron</span><span>Socket.IO</span><span>JWT</span>
+          </div>
+          <a class="case-cta" href="https://github.com/adrianfredes10/ALTO_CHORI" target="_blank" rel="noopener">Ver c&oacute;digo en GitHub</a>
+        </div>
+        <div class="case-media">
+          <video class="project-video" controls playsinline preload="metadata"
+            poster="videos de proyectos/alto chori/caja.jpg">
+            <source src="videos de proyectos/alto chori/0817.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-grid">
+            <img src="videos de proyectos/alto chori/login.jpg" alt="Login Alto Chori" loading="lazy">
+            <img src="videos de proyectos/alto chori/caja.jpg" alt="Caja Alto Chori" loading="lazy">
+            <img src="videos de proyectos/alto chori/cocina.jpg" alt="Cocina Alto Chori" loading="lazy">
+            <img src="videos de proyectos/alto chori/inventario.jpg" alt="Inventario Alto Chori" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <button class="lightbox-close" aria-label="Cerrar imagen"><span></span><span></span></button>
     <img id="lightbox-img" alt="Vista de proyecto" />
   </div>
