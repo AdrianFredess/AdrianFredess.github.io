@@ -2564,6 +2564,12 @@ body {
   background: rgba(212, 175, 120, 0.08);
 }
 
+.case-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
 .case-cta {
   display: inline-flex;
   align-items: center;

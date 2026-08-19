@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=lightbox-nav">
+  <link rel="stylesheet" href="./style.css?v=foodstore">
 </head>
 
 <body>
@@ -308,6 +308,19 @@
         <div class="grid projects-grid">
           <article class="card project-card">
             <div class="card-media">
+              <img src="videos de proyectos/foodstore/inicio.jpg"
+                alt="FoodStore — inicio de la tienda" loading="lazy">
+              <span class="project-badge">Caso de estudio</span>
+            </div>
+            <div class="card-body">
+              <p class="result-metric">Gastronom&iacute;a · Web</p>
+              <h3>FoodStore</h3>
+              <p class="card-desc">Tienda online de pedidos con backoffice de cat&aacute;logo, stock y cocina en tiempo real.</p>
+              <a href="#modal-p4" class="card-link open-modal" data-modal="#modal-p4" aria-controls="modal-p4">Ver caso</a>
+            </div>
+          </article>
+          <article class="card project-card">
+            <div class="card-media">
               <img src="videos de proyectos/alto chori/login.jpg"
                 alt="Alto Chori — pantalla de login" loading="lazy">
               <span class="project-badge">Caso de estudio</span>
@@ -570,6 +583,66 @@
             <img src="videos de proyectos/alto chori/caja.jpg" alt="Caja Alto Chori" loading="lazy">
             <img src="videos de proyectos/alto chori/cocina.jpg" alt="Cocina Alto Chori" loading="lazy">
             <img src="videos de proyectos/alto chori/inventario.jpg" alt="Inventario Alto Chori" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-p4" class="modal" aria-hidden="true">
+    <div class="modal-content case-study">
+      <button class="modal-close" aria-label="Cerrar modal"><span></span><span></span></button>
+      <header class="case-header">
+        <span class="case-label">Gastronom&iacute;a · Tienda + backoffice</span>
+        <h2>FoodStore</h2>
+        <p class="case-summary">Plataforma de pedidos para un food store (TPI UTN, equipo de 4). El cliente pide online; el staff gestiona cat&aacute;logo, stock y cocina. Backend REST + WebSocket. Yo implement&eacute; toda la API.</p>
+      </header>
+
+      <div class="case-body">
+        <div class="case-copy">
+          <div class="case-structure">
+            <div class="case-section">
+              <span class="case-step">01</span>
+              <h4>Desaf&iacute;o</h4>
+              <p>Vender online y operar mostrador/cocina sin planilla: cat&aacute;logo con stock, pedidos con estados, pago y actualizaci&oacute;n al instante.</p>
+            </div>
+            <div class="case-section">
+              <span class="case-step">02</span>
+              <h4>Qu&eacute; hice</h4>
+              <p>Backend completo: JWT en cookie, RBAC, FSM de pedidos, MercadoPago, Cloudinary y WebSocket. Los fronts (store y admin) consumen esa API.</p>
+            </div>
+            <div class="case-section">
+              <span class="case-step">03</span>
+              <h4>Resultado</h4>
+              <p>Flujo cerrado: pedir, pagar y seguir el estado. Staff avanza PENDIENTE → ENTREGADO y el cambio llega en vivo al cliente y a cocina.</p>
+            </div>
+          </div>
+          <div class="case-meta">
+            <span>React</span><span>Vite</span><span>FastAPI</span><span>PostgreSQL</span><span>WebSocket</span><span>JWT</span>
+          </div>
+          <div class="case-cta-row">
+            <a class="case-cta" href="https://github.com/adrianfredes10/backend-foodstore" target="_blank" rel="noopener">API</a>
+            <a class="case-cta" href="https://github.com/adrianfredes10/Repo-Store" target="_blank" rel="noopener">Store</a>
+            <a class="case-cta" href="https://github.com/adrianfredes10/Repo-Admin" target="_blank" rel="noopener">Admin</a>
+          </div>
+        </div>
+        <div class="case-media">
+          <video class="project-video" controls playsinline preload="metadata"
+            poster="videos de proyectos/foodstore/inicio.jpg">
+            <source src="videos de proyectos/foodstore/0819.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-grid">
+            <img src="videos de proyectos/foodstore/inicio.jpg" alt="Inicio FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/catalogo.jpg" alt="Catálogo FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/producto.jpg" alt="Detalle de producto FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/checkout.jpg" alt="Checkout FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/login-admin.jpg" alt="Login admin FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/dashboard.jpg" alt="Dashboard admin FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/categorias.jpg" alt="Categorías admin FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/ingredientes.jpg" alt="Ingredientes admin FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/usuarios.jpg" alt="Usuarios admin FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/productos.jpg" alt="Productos admin FoodStore" loading="lazy">
+            <img src="videos de proyectos/foodstore/pedidos.jpg" alt="Tablero de pedidos FoodStore" loading="lazy">
           </div>
         </div>
       </div>
