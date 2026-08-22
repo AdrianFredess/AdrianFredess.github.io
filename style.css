@@ -188,6 +188,7 @@ body {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
+  image-rendering: auto;
 }
 
 .icon-btn {
@@ -219,6 +220,7 @@ body {
   width: 22px;
   height: 22px;
   display: block;
+  image-rendering: auto;
 }
 
 /* Colores por defecto de marca (sin fondo) */
